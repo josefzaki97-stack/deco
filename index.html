@@ -1,118 +1,63 @@
-<!doctype html>
-<html lang="ar">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DECOLAB</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>DECOLAB — ديكور منزلي</title>
-  <link rel="stylesheet" href="./styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="lang-ar">
-  <div class="wrap">
-    <header>
-        <p id="slogan">أفكار أنيقة تجعل منزلك أجمل </p>
-          
 
-        <img src="images/logo.png" alt="DECOLAB" class="logo">
+<body>
 
-      <div class="brand">
-        <div>
-          <h1 id="site-title">DECOLAB</h1>
-          <p id="site-sub">ديكور منزلي • التصميم العصري</p>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="left">
+            <input id="search" type="text" placeholder="ابحث عن منتج..." class="search">
+            
+            <button onclick="setLanguage('fr')" class="lang-btn">Français</button>
+            <button onclick="setLanguage('ar')" class="lang-btn">العربية</button>
         </div>
-      </div>
 
-      <div class="controls">
-        <div class="search">
-          <input id="searchInput" placeholder="ابحث عن منتج..." />
+        <div class="center">
+            <h1 class="main-title">DECOLAB</h1>
+            <div id="site-title" class="subtitle">ديكور منزلي ▪ التصميم العصري</div>
         </div>
-        <div class="lang-toggle">
-          <button id="btn-ar">العربية</button>
-          <button id="btn-fr">Français</button>
+
+        <div class="right">
+            <img src="./images/logo.png" class="logo" alt="">
         </div>
-        <button id="adminToggle" class="btn small">⚙️</button>
-      </div>
     </header>
 
-    <main>
-      <section class="grid" id="productsGrid"></section>
-    </main>
 
-    <footer>
-      <div id="footer-text">اتصل/واتساب: 0691010696 — DECOLAB</div>
-    </footer>
-  </div>
 
-  <!-- لوحة الإدارة -->
-  <div class="admin-panel hidden" id="adminPanel">
-    <h2>🛠️ إدارة المنتجات</h2>
-    <form id="addForm">
-      <input type="text" id="name_ar" placeholder="الاسم بالعربية" required>
-      <input type="text" id="name_fr" placeholder="الاسم بالفرنسية" required>
-      <input type="text" id="price" placeholder="السعر" required>
-      <input type="text" id="images" placeholder="أسماء الصور مفصولة بفاصلة (image1.jpg,image2.jpg,...)" required>
-      <button type="submit" class="btn">➕ أضف المنتج</button>
-    </form>
+    <!-- PRODUCTS -->
+    <section class="products" id="products"></section>
 
-    <div class="admin-buttons">
-      <button id="exportBtn" class="btn secondary">📤 تصدير JSON</button>
-      <input type="file" id="importFile" accept=".json" hidden>
-      <button id="importBtn" class="btn secondary">📥 استيراد JSON</button>
-    </div>
-  </div>
 
-  <!-- نافذة تسجيل الدخول -->
-  <div class="login-modal hidden" id="loginModal">
-    <div class="login-box">
-      <h3>🔐 تسجيل الدخول للوحة الإدارة</h3>
-      <input type="password" id="adminPassword" placeholder="كلمة المرور">
-      <button id="loginBtn" class="btn">تأكيد</button>
-      <p id="loginError" class="error-text"></p>
-    </div>
-  </div>
-  <script src="./app.js"></script>
-  <!------------------------------------------------------------------------------------------------>
 
-  <!-- ==== نافذة تفاصيل المنتج (Modal) ==== -->
-<div class="product-modal hidden" id="productModal" aria-hidden="true">
-  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalName">
-    <button class="close-modal" id="closeModal" aria-label="إغلاق">×</button>
+    <!-- PRODUCT POPUP -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close" onclick="closePopup()">×</span>
 
-    <div class="modal-left">
-      <div class="modal-gallery">
-        <button class="nav-btn prev" id="modalPrev" aria-label="السابق">‹</button>
-        <img id="modalImage" src="" alt="">
-        <button class="nav-btn next" id="modalNext" aria-label="التالي">›</button>
-      </div>
+            <img id="popup-image" class="popup-image">
 
-      <div class="modal-thumbs" id="modalThumbs" aria-hidden="false"></div>
+            <h2 id="popup-title"></h2>
+
+            <p id="popup-desc" class="popup-desc"></p>
+
+            <h3 id="popup-price" class="popup-price"></h3>
+
+            <a id="popup-buy" class="buy-btn" href="#">
+                اشتري عبر واتساب
+            </a>
+        </div>
     </div>
 
-    <div class="modal-info">
-      <h2 id="modalName">اسم المنتج</h2>
-      <p id="modalPrice" class="modal-price">السعر</p>
-      <p id="modalDesc" class="modal-desc">وصف قصير للمنتج.</p>
 
-      <div class="modal-section">
-        <label class="section-title">الألوان</label>
-        <div class="swatches" id="modalColors"></div>
-      </div>
 
-      <div class="modal-actions">
-        <button id="modalBuy" class="btn">🛒 اشتري عبر واتساب</button>
-        <button id="modalDetails" class="btn secondary">تفاصيل</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- ==== نهاية المودال ==== -->
-
-  
+    <!-- JS FILE -->
+    <script src="./app.js"></script>
 </body>
 </html>
-
-
-<button id="backToTop" title="العودة للأعلى">↑</button>
