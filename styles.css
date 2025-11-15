@@ -1,351 +1,117 @@
-body {
-  background: linear-gradient(135deg, #e6f3ee 0%, #f7faff 100%);
-  color: #2d3b38;
-  font-family: 'Cairo', 'Poppins', sans-serif;
-}
-
-header {
-  background: linear-gradient(90deg, #7cc4b8, #a4d2e0);
-  color: white;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-  border-bottom: none;
-}
-
-
-:root {
-  --accent-grad: linear-gradient(135deg,#7fcf88 0%, #9fd6e5 50%, #eaf6ff 100%);
-  --accent-mid: #9fd6e5;
-  --text:#222;
-  --muted:#6b6b6b;
-  --radius:14px;
-  --shadow:0 6px 18px rgba(30,40,50,0.08);
-}
-
-* { box-sizing: border-box; }
-body {
-  margin:0;
-  font-family:'Cairo','Poppins',sans-serif;
-  background:linear-gradient(180deg,#f2f7f9 0%,#f7f1e0 100%);
-  color:var(--text);
-  padding:28px;
-}
-.wrap{max-width:1200px;margin:auto;}
-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;flex-wrap:wrap;gap:12px;}
-.brand{display:flex;align-items:center;gap:12px;}
-.logo{width:56px;height:56px;border-radius:12px;background:var(--accent-grad);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:Poppins;}
-
-.search-input {
-  width: 260px;
-  padding: 10px 38px 10px 14px; /* مساحة داخلية مناسبة */
-  border: 1.5px solid #b5dcd0;
-  border-radius: 25px;
-  background-color: #fff;
-  font-size: 15px;
-  color: #2d3b38;
-  margin-inline-end: 16px; /* ← الإزاحة المطلوبة عن أقصى اليسار */
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
-
-.lang-toggle button{padding:8px 12px;border-radius:10px;border:1px solid #ccc;background:white;cursor:pointer;}
-.btn{padding:10px 12px;border:0;border-radius:10px;cursor:pointer;font-weight:700;background:var(--accent-mid);color:#fff;}
-.btn.small{padding:8px 10px;font-size:13px;}
-.btn.secondary{background:white;color:var(--text);border:1px solid #ccc;}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px;}
-.card{background:white;border-radius:var(--radius);box-shadow:var(--shadow);padding:14px;display:flex;flex-direction:column;gap:12px;}
-.img-wrap{height:200px;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;transition:.3s;}
-.img-wrap img{max-width:100%;max-height:100%;object-fit:cover;}
-.swatches{display:flex;gap:8px;}
-.swatch{width:30px;height:30px;border-radius:8px;border:1px solid #ccc;cursor:pointer;}
-.swatch.selected{outline:3px solid rgba(0,0,0,0.1);}
-.actions{display:flex;gap:8px;margin-top:auto;}
-footer{text-align:center;color:var(--muted);margin-top:24px;}
-.admin-panel {
-  position:fixed;bottom:0;left:0;width:100%;
-  background:white;box-shadow:0 -6px 18px rgba(0,0,0,0.1);
-  border-top-left-radius:16px;border-top-right-radius:16px;
-  padding:20px;max-height:80vh;overflow:auto;transition:.3s;
-}
-.admin-panel.hidden{transform:translateY(100%);}
-.admin-buttons{display:flex;gap:10px;margin-top:10px;}
-form#addForm{display:flex;flex-wrap:wrap;gap:10px;}
-form#addForm input{flex:1;min-width:150px;padding:8px;border-radius:8px;border:1px solid #ccc;}
-body.lang-ar{direction:rtl;}
-@media(max-width:640px){.img-wrap{height:160px;}}
-
-/* نافذة تسجيل الدخول */
-.login-modal {
-  position:fixed;top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,0.4);
-  display:flex;align-items:center;justify-content:center;
-  z-index:200;
-}
-.login-modal.hidden {display:none;}
-.login-box {
-  background:white;
-  border-radius:12px;
-  padding:20px;
-  box-shadow:var(--shadow);
-  width:280px;
-  text-align:center;
-}
-.login-box input {
-  width:100%;padding:8px;margin:10px 0;
-  border-radius:8px;border:1px solid #ccc;
-}
-.error-text {color:red;font-size:13px;}
-
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.8);
-  border: none;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  color: #333;
-  transition: background 0.2s;
-}
-.nav-btn:hover { background: rgba(255,255,255,1); }
-.nav-btn.prev { left: 8px; }
-.nav-btn.next { right: 8px; }
-.img-wrap { position: relative; }
-
-/* نافذة تفاصيل المنتج */
-.product-modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  backdrop-filter: blur(4px);
-}
-.product-modal.hidden { display: none; }
-
-.modal-content {
-  background: white;
-  border-radius: 16px;
-  max-width: 900px;
-  width: 95%;
-  max-height: 90vh;
-  overflow: auto;
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
-  padding: 20px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  animation: fadeIn .3s ease;
-}
-@keyframes fadeIn { from {opacity:0; transform:scale(0.95);} to {opacity:1; transform:scale(1);} }
-
-.modal-gallery {
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.modal-gallery img {
-  max-width: 100%;
-  max-height: 70vh;
-  border-radius: 12px;
-  object-fit: contain;
-}
-.modal-info {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.close-modal {
-  position: absolute;
-  top: 10px; right: 20px;
-  font-size: 26px;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: #555;
-}
-#modalColors .swatch {
-  width: 32px; height: 32px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
-#modalColors .swatch.selected {
-  outline: 3px solid rgba(0,0,0,0.2);
-}
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255,255,255,0.8);
-  border: none;
-  border-radius: 50%;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  font-size: 20px;
-  font-weight: bold;
-  color: #333;
-}
-.nav-btn.prev { left: 10px; }
-.nav-btn.next { right: 10px; }
+// ----------------------
+// 1. Database of products
+// ----------------------
+const products = [
+    {
+        id: 1,
+        name_ar: "رف جداري",
+        name_fr: "Étagère murale",
+        price: 850,
+        colors: ["#e0f7fa", "#b2ebf2", "#80deea"],
+        image: "./images/product1.jpg",
+        description_ar: "رف جداري بتصميم عصري مناسب لجميع الديكورات.",
+        description_fr: "Étagère murale moderne adaptée à toutes les décorations."
+    },
+    {
+        id: 2,
+        name_ar: "طاولة قهوة",
+        name_fr: "Table basse",
+        price: 1200,
+        colors: ["#fce4ec", "#f8bbd0", "#f48fb1"],
+        image: "./images/product2.jpg",
+        description_ar: "طاولة قهوة أنيقة تضيف لمسة فاخرة لغرفة المعيشة.",
+        description_fr: "Table basse élégante ajoutant une touche luxueuse au salon."
+    }
+];
 
 
-/* 📱 تحسين العرض على الهواتف */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    gap: 8px;
-    text-align: center;
-  }
+// ----------------------
+// 2. Detect language
+// ----------------------
+let currentLang = localStorage.getItem("lang") || "ar";
 
-  .product-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    padding: 0 10px;
-  }
-
- .product-card {
-  background: white;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  cursor: pointer;
+function setLanguage(lang) {
+    currentLang = lang;
+    localStorage.setItem("lang", lang);
+    renderProducts();
+    applyText();
 }
 
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+function applyText() {
+    document.getElementById("site-title").textContent = currentLang === "ar" ? "ديكور منزلي ▪ التصميم العصري" : "Décoration intérieure ▪ Design moderne";
+    document.getElementById("search").placeholder = currentLang === "ar" ? "ابحث عن منتج..." : "Rechercher...";
 }
 
-.product-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-bottom: 2px solid #e8f1f0;
+applyText();
+
+
+// ----------------------
+// 3. Render products
+// ----------------------
+function renderProducts() {
+    const container = document.getElementById("products");
+    container.innerHTML = "";
+
+    products.forEach(product => {
+        const card = document.createElement("div");
+        card.className = "product-card";
+
+        card.innerHTML = `
+            <img src="${product.image}" alt="${currentLang === "ar" ? product.name_ar : product.name_fr}" class="product-image" onclick="openPopup(${product.id})">
+
+            <h3>${currentLang === "ar" ? product.name_ar : product.name_fr}</h3>
+
+            <p class="price">${product.price} د.م</p>
+
+            <div class="colors">
+                ${product.colors.map(c => `<span class="color" style="background:${c}"></span>`).join("")}
+            </div>
+
+            <div class="buttons">
+                <button onclick="openPopup(${product.id})">
+                    ${currentLang === "ar" ? "تفاصيل" : "Détails"}
+                </button>
+
+                <a class="buy-btn" href="https://wa.me/212691010696?text=Je veux acheter: ${product.name_fr}">
+                    ${currentLang === "ar" ? "اشتري عبر واتساب" : "Acheter sur WhatsApp"}
+                </a>
+            </div>
+        `;
+
+        container.appendChild(card);
+    });
 }
 
-.product-card h3 {
-  font-size: 1.1em;
-  margin: 12px 0 4px;
-  color: #2e4440;
+renderProducts();
+
+
+// ----------------------
+// 4. Product Popup
+// ----------------------
+function openPopup(id) {
+    const product = products.find(p => p.id === id);
+
+    document.getElementById("popup-image").src = product.image;
+    document.getElementById("popup-title").textContent = currentLang === "ar" ? product.name_ar : product.name_fr;
+    document.getElementById("popup-desc").textContent = currentLang === "ar" ? product.description_ar : product.description_fr;
+    document.getElementById("popup-price").textContent = product.price + " د.م";
+
+    document.getElementById("popup").style.display = "flex";
 }
 
-.product-card p {
-  color: #558;
-}
-
-.product-card button {
-  background: linear-gradient(90deg, #7cc4b8, #a4d2e0);
-  border: none;
-  color: white;
-  border-radius: 8px;
-  padding: 8px 16px;
-  margin: 10px 0;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.product-card button:hover {
-  background: linear-gradient(90deg, #6bb5a7, #93cde0);
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
 }
 
 
-  .lang-switch button {
-    font-size: 13px;
-    padding: 6px 10px;
-  }
+// ----------------------
+// 5. Search System
+// ----------------------
+document.getElementById("search").addEventListener("input", function () {
+    const searchValue = this.value.toLowerCase().trim();
 
-  .modal-content {
-    width: 95%;
-    height: auto;
-    max-height: 90vh;
-    overflow-y: auto;
-  }
-
-  .modal-images img {
-    max-height: 250px;
-  }
-
-  footer {
-    font-size: 13px;
-    padding: 8px;
-  }
-}
-
-@media (max-width: 480px) {
-  .product-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* 🔝 زر العودة للأعلى */
-#backToTop {
-  position: fixed;
-  bottom: 25px;
-  right: 20px;
-  background: linear-gradient(135deg, #7cc4b8, #a4d2e0);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 45px;
-  height: 45px;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.4s, visibility 0.4s;
-  z-index: 999;
-}
-
-#backToTop:hover {
-  background: linear-gradient(135deg, #8fdac9, #b6e0ef);
-}
-
-/* عند الظهور */
-#backToTop.show {
-  opacity: 1;
-  visibility: visible;
-}
-
-@keyframes fadeInUp {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
-}
-
-.product-card {
-  animation: fadeInUp 0.6s ease forwards;
-}
-
-
-
-.modal-content {
-  background: white;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  animation: fadeInUp 0.5s ease;
-}
-
-.product-card img:hover {
-  transform: scale(1.05);
-  transition: transform 0.4s ease;
-}
-
-#slogan {
-  font-size: 14px;
-  opacity: 0.9;
-}
-
+    document.querySelectorAll(".product-card").forEach(card => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        card.style.display = title.includes(searchValue) ? "block" : "none";
+    });
+});

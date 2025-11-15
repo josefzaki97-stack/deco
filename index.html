@@ -16,7 +16,7 @@
         <p id="slogan">أفكار أنيقة تجعل منزلك أجمل </p>
           
 
-        <img src="images/logo.jpg" alt="DECOLAB" class="logo">
+        <img src="images/logo.png" alt="DECOLAB" class="logo">
 
       <div class="brand">
         <div>
@@ -74,6 +74,43 @@
     </div>
   </div>
   <script src="./app.js"></script>
+  <!------------------------------------------------------------------------------------------------>
+
+  <!-- ==== نافذة تفاصيل المنتج (Modal) ==== -->
+<div class="product-modal hidden" id="productModal" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalName">
+    <button class="close-modal" id="closeModal" aria-label="إغلاق">×</button>
+
+    <div class="modal-left">
+      <div class="modal-gallery">
+        <button class="nav-btn prev" id="modalPrev" aria-label="السابق">‹</button>
+        <img id="modalImage" src="" alt="">
+        <button class="nav-btn next" id="modalNext" aria-label="التالي">›</button>
+      </div>
+
+      <div class="modal-thumbs" id="modalThumbs" aria-hidden="false"></div>
+    </div>
+
+    <div class="modal-info">
+      <h2 id="modalName">اسم المنتج</h2>
+      <p id="modalPrice" class="modal-price">السعر</p>
+      <p id="modalDesc" class="modal-desc">وصف قصير للمنتج.</p>
+
+      <div class="modal-section">
+        <label class="section-title">الألوان</label>
+        <div class="swatches" id="modalColors"></div>
+      </div>
+
+      <div class="modal-actions">
+        <button id="modalBuy" class="btn">🛒 اشتري عبر واتساب</button>
+        <button id="modalDetails" class="btn secondary">تفاصيل</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ==== نهاية المودال ==== -->
+
+  
 </body>
 </html>
 
