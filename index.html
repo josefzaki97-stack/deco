@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ar">
+<head>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>DECOLAB — ديكور منزلي</title>
+  <link rel="stylesheet" href="./styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body class="lang-ar">
+  <div class="wrap">
+    <header>
+        <p id="slogan">أفكار أنيقة تجعل منزلك أجمل </p>
+          
+
+        <img src="images/" alt="DECOLAB" class="logo">
+
+      <div class="brand">
+        <div>
+          <h1 id="site-title">DECOLAB</h1>
+          <p id="site-sub">ديكور منزلي • التصميم العصري</p>
+        </div>
+      </div>
+
+      <div class="controls">
+        <div class="search">
+          <input id="searchInput" placeholder="ابحث عن منتج..." />
+        </div>
+        <div class="lang-toggle">
+          <button id="btn-ar">العربية</button>
+          <button id="btn-fr">Français</button>
+        </div>
+        <button id="adminToggle" class="btn small">⚙️</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="grid" id="productsGrid"></section>
+    </main>
+
+    <footer>
+      <div id="footer-text">اتصل/واتساب: 0691010696 — DECOLAB</div>
+    </footer>
+  </div>
+
+  <!-- لوحة الإدارة -->
+  <div class="admin-panel hidden" id="adminPanel">
+    <h2>🛠️ إدارة المنتجات</h2>
+    <form id="addForm">
+      <input type="text" id="name_ar" placeholder="الاسم بالعربية" required>
+      <input type="text" id="name_fr" placeholder="الاسم بالفرنسية" required>
+      <input type="text" id="price" placeholder="السعر" required>
+      <input type="text" id="images" placeholder="أسماء الصور مفصولة بفاصلة (image1.jpg,image2.jpg,...)" required>
+      <button type="submit" class="btn">➕ أضف المنتج</button>
+    </form>
+
+    <div class="admin-buttons">
+      <button id="exportBtn" class="btn secondary">📤 تصدير JSON</button>
+      <input type="file" id="importFile" accept=".json" hidden>
+      <button id="importBtn" class="btn secondary">📥 استيراد JSON</button>
+    </div>
+  </div>
+
+  <!-- نافذة تسجيل الدخول -->
+  <div class="login-modal hidden" id="loginModal">
+    <div class="login-box">
+      <h3>🔐 تسجيل الدخول للوحة الإدارة</h3>
+      <input type="password" id="adminPassword" placeholder="كلمة المرور">
+      <button id="loginBtn" class="btn">تأكيد</button>
+      <p id="loginError" class="error-text"></p>
+    </div>
+  </div>
+  <!-- نافذة تفاصيل المنتج -->
+<div class="product-modal hidden" id="productModal">
+  <div class="modal-content">
+    <button class="close-modal" id="closeModal">×</button>
+    <div class="modal-gallery">
+      <img id="modalImage" src="" alt="">
+      <button class="nav-btn prev" id="modalPrev">‹</button>
+      <button class="nav-btn next" id="modalNext">›</button>
+    </div>
+    <div class="modal-info">
+      <h2 id="modalName"></h2>
+      <p id="modalPrice"></p>
+      <p id="modalDesc"></p>
+      <div class="swatches" id="modalColors"></div>
+      <button id="modalBuy" class="btn">🛒 شراء عبر واتساب</button>
+    </div>
+  </div>
+</div>
+
+<section class="products">
+  <div class="product-card">
+    <img src="./images/" alt="Produit 1">
+    <h3>ديكور جداري خشبي</h3>
+    <p>تصميم أنيق يناسب جميع أنماط الديكور.</p>
+    <button onclick="window.open('https://wa.me/212691010696', '_blank')">اطلب الآن</button>
+  </div>
+
+  <div class="product-card">
+    <img src="./images/" alt="Produit 2">
+    <h3>مزهريات زجاجية</h3>
+    <p>ألوان متعددة لتزيين منزلك بلمسة فنية.</p>
+    <button onclick="window.open('https://wa.me/212691010696', '_blank')">اطلب الآن</button>
+  </div>
+</section>
+
+  <script src="./app.js"></script>
+</body>
+</html>
+
+
+<button id="backToTop" title="العودة للأعلى">↑</button>
