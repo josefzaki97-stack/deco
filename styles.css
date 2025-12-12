@@ -370,3 +370,91 @@ body.lang-ar{direction:rtl;}
   height: 220px;
   object-fit: cover;
 }
+
+
+/* خلفية الموقع */
+body {
+  margin: 0;
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(135deg, #87d6c8, #8abfe8);
+  color: #fff;
+  text-align: center;
+}
+
+/* الشعار */
+.logo {
+  width: 90px;
+  height: 90px;
+  border-radius: 20px;
+  object-fit: cover;
+  margin: 10px auto;
+  display: block;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* العنوان */
+#site-title {
+  font-size: 42px;
+  font-weight: 700;
+  margin: 10px 0 0 0;
+}
+
+#site-sub {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+/* الشعار النصي */
+#slogan {
+  margin-top: 20px;
+  font-size: 18px;
+  opacity: 0.95;
+}
+
+/* صندوق التحكم في البحث واللغات */
+.controls {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* البحث */
+.search input {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  width: 220px;
+  font-size: 16px;
+}
+
+/* أزرار اللغة */
+.lang-toggle button {
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+.lang-toggle button:hover {
+  background: #e3f5ff;
+  transform: scale(1.05);
+}
+
+/* زر الأدمن */
+.btn.small {
+  padding: 8px 10px;
+  background: #ffffff80;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn.small:hover {
+  background: #ffffffc5;
+}
