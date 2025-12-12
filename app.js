@@ -1,5 +1,5 @@
 // ===== إعدادات عامة =====
-const whatsappNumber = '212691010696';
+const whatsappNumber = '212691010969';
 const adminPassword = 'admin123'; // ← يمكنك تغييره هنا
 
 let products = JSON.parse(localStorage.getItem('decolab_products')) || [
@@ -42,7 +42,7 @@ const i18n = {
     details:'تفاصيل',
     noResults:'لا توجد نتائج',
     search:'ابحث عن منتج...',
-    footer:'اتصل/واتساب: 0691010696 — DECOLAB',
+    footer:'اتصل/واتساب: 0691010969 — DECOLAB',
     subtitle:'ديكور منزلي • التصميم العصري'
   },
   fr:{
@@ -50,7 +50,7 @@ const i18n = {
     details:'Détails',
     noResults:'Aucun résultat',
     search:'Rechercher...',
-    footer:'Contact/WhatsApp: 0691010696 — DECOLAB',
+    footer:'Contact/WhatsApp: 0691010969 — DECOLAB',
     subtitle:'Décoration intérieure • Design moderne'
   }
 };
