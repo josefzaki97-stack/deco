@@ -201,15 +201,22 @@ function showLogin(){
 }
 
 document.getElementById('loginBtn').onclick = () => {
-  const pass=document.getElementById('adminPassword').value;
-  if(pass === adminPassword){
+  const pass = document.getElementById('adminPassword').value;
+
+  if (pass === adminPassword) {
     loginModal.classList.add('hidden');
-    adminPanel.classList.toggle('hidden');
+    adminPanel.classList.remove('hidden');
   } else {
     document.getElementById('loginError').textContent = '❌ كلمة المرور غير صحيحة';
+
+    // ⏱️ إغلاق نافذة الدخول تلقائيًا بعد الرفض
+    setTimeout(() => {
+      loginModal.classList.add('hidden');
+      document.getElementById('adminPassword').value = '';
+      document.getElementById('loginError').textContent = '';
+    }, 1500);
   }
 };
-
 
 // ======================
 // إضافة منتج
