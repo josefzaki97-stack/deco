@@ -377,5 +377,7 @@ loginModal.addEventListener('click', e => {
 // ======================
 // بدء التشغيل
 // ======================
-setLang('ar');
-renderProducts();
+document.addEventListener('DOMContentLoaded', () => {
+  setLang('ar');      // ضبط اللغة العربية
+  renderProducts();  // عرض المنتجات فورًا
+});
