@@ -368,6 +368,12 @@ backToTopBtn.addEventListener('click', () => {
 });
 
 
+loginModal.addEventListener('click', e => {
+  if (e.target === loginModal) {
+    loginModal.classList.add('hidden');
+  }
+});
+
 // ======================
 // بدء التشغيل
 // ======================
