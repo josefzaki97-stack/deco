@@ -110,4 +110,119 @@ function renderProducts(filter = '') {
     buy.textContent = i18n[currentLang].buy;
     buy.onclick = () => {
       const msg = currentLang === 'ar'
-        ? `مرحباً،
+        ? `مرحباً، أود شراء ${p.name_ar} بسعر ${p.price}`
+        : `Bonjour, je veux acheter ${p.name_fr} prix ${p.price}`;
+      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+    };
+
+    const info = document.createElement('button');
+    info.className = 'btn secondary';
+    info.textContent = i18n[currentLang].details;
+    info.onclick = () => openProductModal(p);
+
+    actions.append(buy, info);
+    card.append(imgWrap, h3, price, actions);
+    grid.appendChild(card);
+  });
+}
+
+
+// ======================
+// البحث
+// ======================
+searchInput.addEventListener('input', e => renderProducts(e.target.value));
+
+
+// ======================
+// اللغة
+// ======================
+document.getElementById('btn-ar').onclick = () => setLang('ar');
+document.getElementById('btn-fr').onclick = () => setLang('fr');
+
+function setLang(l) {
+  currentLang = l;
+  document.body.classList.toggle('lang-ar', l === 'ar');
+  searchInput.placeholder = i18n[l].search;
+  footerText.textContent = i18n[l].footer;
+  document.getElementById('site-sub').textContent = i18n[l].subtitle;
+  renderProducts(searchInput.value);
+}
+
+
+// ======================
+// لوحة الإدارة
+// ======================
+document.getElementById('adminToggle').onclick = () => {
+  loginModal.classList.remove('hidden');
+};
+
+document.getElementById('loginBtn').onclick = () => {
+  const pass = document.getElementById('adminPassword').value;
+
+  if (pass === adminPassword) {
+    loginModal.classList.add('hidden');
+    adminPanel.classList.remove('hidden');
+  } else {
+    document.getElementById('loginError').textContent = '❌ كلمة المرور غير صحيحة';
+    setTimeout(() => {
+      loginModal.classList.add('hidden');
+      document.getElementById('loginError').textContent = '';
+      document.getElementById('adminPassword').value = '';
+    }, 1500);
+  }
+};
+
+loginModal.addEventListener('click', e => {
+  if (e.target === loginModal) loginModal.classList.add('hidden');
+});
+
+
+// ======================
+// نافذة التفاصيل
+// ======================
+const modal = document.getElementById('productModal');
+const modalImage = document.getElementById('modalImage');
+const modalName = document.getElementById('modalName');
+const modalPrice = document.getElementById('modalPrice');
+const closeModal = document.getElementById('closeModal');
+
+let currentImages = [];
+let currentIndex = 0;
+
+function openProductModal(product) {
+  modal.classList.remove('hidden');
+  currentImages = product.images;
+  currentIndex = 0;
+  modalImage.src = currentImages[0];
+  modalName.textContent = product['name_' + currentLang];
+  modalPrice.textContent = product.price;
+}
+
+closeModal.onclick = () => modal.classList.add('hidden');
+modal.addEventListener('click', e => {
+  if (e.target === modal) modal.classList.add('hidden');
+});
+
+
+// ======================
+// زر العودة للأعلى (آمن)
+// ======================
+const backToTopBtn = document.getElementById('backToTop');
+
+if (backToTopBtn) {
+  window.addEventListener('scroll', () => {
+    backToTopBtn.classList.toggle('show', window.scrollY > 300);
+  });
+
+  backToTopBtn.onclick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+}
+
+
+// ======================
+// بدء التشغيل
+// ======================
+document.addEventListener('DOMContentLoaded', () => {
+  setLang('ar');
+});
