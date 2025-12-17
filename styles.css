@@ -1,25 +1,14 @@
-/* ------------------------------
-   🎨 إعدادات عامة – متغيرات + Reset
----------------------------------- */
-:root {
-  --accent-grad: linear-gradient(135deg, #7cc4b8, #a4d2e0);
-  --accent-light: #a4d2e0;
-  --accent-mid: #7cc4b8;
-  --text-dark: #2d3b38;
-  --muted: #6b6b6b;
-  --radius: 14px;
-  --shadow: 0 6px 18px rgba(30, 40, 50, 0.08);
-  --shadow-strong: 0 10px 30px rgba(0, 0, 0, 0.2);
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: 'Cairo', 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #87d6c8, #8abfe8);
-  color: #fff;
+  background: linear-gradient(135deg,#87d6c8,#8abfe8);
+  color: white;
   text-align: center;
-  margin: 0;
 }
 
 .wrap {
@@ -28,305 +17,79 @@ body {
   padding: 20px;
 }
 
-body.lang-ar { direction: rtl; }
-
-
-/* ------------------------------
-   🧩 الهيدر + الشعار + البحث
----------------------------------- */
-header {
-  margin-top: 20px;
-  text-align: center;
-}
-
-#slogan {
-  font-size: 18px;
-  opacity: 0.95;
-  margin-bottom: 10px;
-}
-
 .logo {
   width: 90px;
-  height: 90px;
   border-radius: 20px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto 10px auto;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-#site-title {
-  font-size: 42px;
-  font-weight: 700;
-  margin-top: 5px;
-}
-
-#site-sub {
-  font-size: 18px;
-  opacity: 0.9;
+  margin: 10px auto;
 }
 
 .controls {
-  margin-top: 15px;
   display: flex;
   justify-content: center;
-  gap: 12px;
+  gap: 10px;
   flex-wrap: wrap;
 }
 
-.search input {
-  padding: 10px 15px;
+.controls input {
+  padding: 10px;
   border-radius: 10px;
   border: none;
-  width: 230px;
-  font-size: 16px;
-  color: #2d3b38;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  width: 220px;
 }
 
-/* اللغات */
-.lang-toggle button {
+.lang-toggle button,
+.btn {
   padding: 8px 14px;
-  border-radius: 12px;
-  background: white;
-  border: none;
-  cursor: pointer;
-  font-size: 15px;
-  transition: 0.2s;
-  color: var(--text-dark);
-}
-
-.lang-toggle button:hover {
-  background: #e3f5ff;
-  transform: scale(1.05);
-}
-
-.btn.small {
-  padding: 8px 10px;
-  background: #ffffff80;
   border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: 0.2s;
 }
 
-.btn.small:hover {
-  background: white;
-}
-
-
-/* ------------------------------
-   🛍️ شبكة المنتجات (Cards)
----------------------------------- */
 .grid {
   margin-top: 30px;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(auto-fill,minmax(240px,1fr));
+  gap: 20px;
 }
 
 .card {
   background: white;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  color: var(--text-dark);
-  animation: fadeInUp 0.6s ease forwards;
+  color: #2d3b38;
+  padding: 15px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
-.img-wrap {
+.card img {
+  width: 100%;
   height: 200px;
-  border-radius: 12px;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-
-.img-wrap img {
-  width: 100%;
-  height: 100%;
   object-fit: cover;
+  border-radius: 10px;
 }
 
-.card img:hover {
-  transform: scale(1.05);
-  transition: transform 0.4s ease;
-}
-
-.swatches { display: flex; gap: 8px; }
-.swatch {
-  width: 30px; height: 30px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  cursor: pointer;
-}
-.swatch.selected { outline: 3px solid rgba(0,0,0,0.2); }
-
-
-/* ------------------------------
-   📝 نافذة التفاصيل (Modal)
----------------------------------- */
-
-.product-modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-  backdrop-filter: blur(4px);
-}
-.product-modal.hidden { display: none; }
-
-.modal-content {
-  background: white;
-  border-radius: 20px;
-  padding: 20px;
-  max-width: 900px;
-  width: 95%;
-  max-height: 90vh;
-  overflow: auto;
-  display: flex;
-  gap: 20px;
-  box-shadow: var(--shadow-strong);
-  animation: fadeInUp 0.5s ease;
-}
-
-.modal-gallery { flex: 1; }
-.modal-gallery img {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: contain;
-  max-height: 70vh;
-}
-
-.close-modal {
-  position: absolute;
-  top: 10px; right: 20px;
-  background: none;
-  border: none;
-  font-size: 26px;
-  cursor: pointer;
-  color: #444;
-}
-
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  width: 36px;
-  height: 36px;
-  cursor: pointer;
-  border: none;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.8);
-  font-size: 20px;
+.price {
+  margin: 10px 0;
   font-weight: bold;
 }
 
-.nav-btn.prev { left: 10px; }
-.nav-btn.next { right: 10px; }
-
-
-/* ------------------------------
-   🛠️ لوحة الإدارة
----------------------------------- */
-.admin-panel {
-  position: fixed;
-  bottom: 0; left: 0;
-  width: 100%;
-  background: white;
-  padding: 20px;
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
-  box-shadow: 0 -6px 18px rgba(0,0,0,0.1);
-  max-height: 80vh;
-  overflow: auto;
-  transition: 0.3s;
-  z-index: 1100;
-}
-
-.admin-panel.hidden {
-  transform: translateY(100%);
-}
-
-.admin-buttons {
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-#addForm {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-#addForm input {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #ccc;
-  flex: 1;
-}
-
-
-/* ------------------------------
-   🔐 تسجيل الدخول
----------------------------------- */
-.login-modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
-}
-
-.login-modal.hidden { display: none; }
-
-.login-box {
-  background: white;
-  padding: 20px;
-  width: 280px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: var(--shadow);
-}
-
-.login-box input {
-  width: 100%;
-  padding: 8px;
-  margin: 10px 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-}
-
-.error-text { color: red; font-size: 13px; }
-
-
-/* ------------------------------
-   🔝 زر العودة للأعلى
----------------------------------- */
 #backToTop {
   position: fixed;
-  bottom: 25px;
+  bottom: 20px;
   right: 20px;
-  width: 45px; height: 45px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   border: none;
   font-size: 22px;
   cursor: pointer;
+  background: #7cc4b8;
   color: white;
-  background: var(--accent-grad);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.3);
-  opacity: 0; visibility: hidden;
-  transit
-.}
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+}
+
+#backToTop.show {
+  opacity: 1;
+  visibility: visible;
+}
