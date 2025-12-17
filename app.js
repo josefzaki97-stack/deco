@@ -161,7 +161,6 @@ function renderProducts(filter='') {
 // ======================
 // البحث
 // ======================
-searchInput.placeholder = i18n[currentLang].search;
 searchInput.addEventListener('input', e => renderProducts(e.target.value));
 
 
