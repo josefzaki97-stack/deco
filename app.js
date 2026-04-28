@@ -161,4 +161,4 @@ setLang('ar');
 
 document.addEventListener("DOMContentLoaded", () => {
   renderProducts(); // عرض المنتجات مباشرة
-});
+}); 
