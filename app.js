@@ -12,14 +12,14 @@ let products = JSON.parse(localStorage.getItem('decolab_products')) || [
     name_ar:'طاولة قهوة',
     name_fr:'Table basse',
     price:'1200 د.م',
-    images:['./images/coffee_table1.jpg']
+    images:['./IMAGES/coffee_table1.jpg']
   },
   {
     id:'2',
     name_ar:'رف جداري',
     name_fr:'Étagère murale',
     price:'850 د.م',
-    images:['./images/wall_shelf1.jpg']
+    images:['./IMAGES/wall_shelf1.jpg']
   }
 ];
 
