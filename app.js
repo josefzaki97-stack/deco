@@ -250,3 +250,68 @@ document.addEventListener('DOMContentLoaded', () => {
   setLang('ar');
 
 });
+
+/* ======================
+   إضافة منتج
+====================== */
+
+const addProductBtn =
+  document.getElementById('addProductBtn');
+
+if(addProductBtn){
+
+  addProductBtn.onclick = () => {
+
+    const nameAr =
+      document.getElementById('nameAr').value;
+
+    const nameFr =
+      document.getElementById('nameFr').value;
+
+    const price =
+      document.getElementById('price').value;
+
+    const image =
+      document.getElementById('image').value;
+
+    if(!nameAr || !nameFr || !price || !image){
+
+      alert('املأ جميع الحقول');
+      return;
+
+    }
+
+    const newProduct = {
+
+      id: Date.now().toString(),
+
+      name_ar: nameAr,
+
+      name_fr: nameFr,
+
+      price: price,
+
+      images: [image]
+
+    };
+
+    products.push(newProduct);
+
+    localStorage.setItem(
+      'decolab_products',
+      JSON.stringify(products)
+    );
+
+    renderProducts();
+
+    /* تنظيف الحقول */
+    document.getElementById('nameAr').value = '';
+    document.getElementById('nameFr').value = '';
+    document.getElementById('price').value = '';
+    document.getElementById('image').value = '';
+
+    alert('✅ تم إضافة المنتج');
+
+  };
+
+}

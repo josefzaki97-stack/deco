@@ -261,3 +261,94 @@ footer{
     width:100%;
   }
 }
+
+/* ADMIN PANEL */
+.admin-panel{
+
+  margin-top:30px;
+
+  background:rgba(255,255,255,.1);
+
+  padding:25px;
+
+  border-radius:20px;
+
+  backdrop-filter:blur(10px);
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:15px;
+}
+
+.admin-panel input{
+
+  padding:14px;
+
+  border:none;
+
+  border-radius:12px;
+
+  outline:none;
+}
+
+.admin-panel button{
+
+  background:#d4a373;
+
+  color:white;
+
+  font-weight:bold;
+}
+
+/* LOGIN MODAL */
+.login-modal{
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,.6);
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  z-index:9999;
+}
+
+.login-box{
+
+  background:white;
+
+  padding:30px;
+
+  border-radius:20px;
+
+  width:320px;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:15px;
+}
+
+.login-box input{
+
+  padding:12px;
+}
+
+.login-box button{
+
+  background:#222;
+
+  color:white;
+}
+
+.hidden{
+  display:none;
+}

@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="./styles.css">
 </head>
 
+
 <body class="lang-ar">
 
 <div class="wrap">
@@ -53,5 +54,44 @@
 <!-- JS -->
 <script src="./app.js" defer></script>
 
+<!-- ADMIN PANEL -->
+<div id="adminPanel" class="hidden admin-panel">
+
+  <h2>إضافة منتج</h2>
+
+  <input type="text" id="nameAr" placeholder="اسم المنتج بالعربية">
+
+  <input type="text" id="nameFr" placeholder="Nom du produit en français">
+
+  <input type="text" id="price" placeholder="السعر">
+
+  <input type="text" id="image" placeholder="رابط الصورة أو ./IMAGES/image.jpg">
+
+  <button id="addProductBtn">
+    إضافة المنتج
+  </button>
+
+</div>
+
+<!-- LOGIN MODAL -->
+<div id="loginModal" class="hidden login-modal">
+
+  <div class="login-box">
+
+    <h3>دخول الأدمن</h3>
+
+    <input type="password"
+           id="adminPassword"
+           placeholder="كلمة المرور">
+
+    <button id="loginBtn">
+      دخول
+    </button>
+
+    <p id="loginError"></p>
+
+  </div>
+
+</div>
 </body>
 </html>
