@@ -186,20 +186,8 @@ button:hover{
 /* Product image */
 .card img{
   width:100%;
-  height:260px;
-
-  object-fit:contain;
-
-  background:
-    linear-gradient(to bottom,#f8f8f8,#ececec);
-
-  padding:15px;
-
-  transition:.4s ease;
-}
-
-.card:hover img{
-  transform:scale(1.05);
+  height:240px;
+  object-fit:cover;
 }
 
 /* Card content */
